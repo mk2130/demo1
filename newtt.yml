@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Outputs the time
+Resources:
+  rekognitionvideo:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: 'com.amazonaws.lambda.demo.LambdaFunctionHandler::handleRequest'
+      Runtime:  java8
+      CodeUri: s3://demo-pipeline-1/index.zip
