@@ -3,9 +3,14 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Outputs the time
 Resources:
+  NestedTemplate:
+    AWS::CloudFormation::Stack
+    Properties:
+      TemplateUri: ./nested-template.json
   TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
+      FunctionName: 'TimeFunction'
       Handler: index.handler
       Runtime: nodejs6.10
       CodeUri: ./
@@ -15,3 +20,4 @@ Resources:
           Properties:
             Path: /TimeResource
             Method: GET
+  
