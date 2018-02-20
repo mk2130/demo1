@@ -4,9 +4,9 @@ Transform: AWS::Serverless-2016-10-31
 Description: Outputs the time
 Resources:
   NestedTemplate:
-    AWS::CloudFormation::Stack
+    Type: AWS::CloudFormation::Stack
     Properties:
-      TemplateUri: ./nested-template.json
+      TemplateURL: ./nested-template.json 
   TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -20,4 +20,3 @@ Resources:
           Properties:
             Path: /TimeResource
             Method: GET
-  
