@@ -3,7 +3,7 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: Outputs the time
 Resources:
-  MyLambdaFunction:
+  TimeFunction:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: 'TimeFunction'
@@ -14,5 +14,5 @@ Resources:
         MyTimeApi:
           Type: Api
           Properties:
-            Path: /TimeFunction
-            Method: GET MyLambdaFunction	
+            Path: /TimeResource
+            Method: GET	
