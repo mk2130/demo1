@@ -1,12 +1,22 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "An example template with an IAM role for a Lambda state machine."
 Resources:
+  LambdaExecutionRole:
+    Type: "AWS::IAM::Role"
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: "sts:AssumeRole"		
   MyLambdaFunction:
     Type: "AWS::Lambda::Function"
     Properties:
       Handler: "index.handler"
       FunctionName: 'TimeFunction'
-      Role: 'arn:aws:iam::491398371152:role/MyBetaLambdastack-TimeFunctionRole-1LGQ2POGD3585'
+      Role: !GetAtt [ LambdaExecutionRole, Arn ]
       Code:
         S3Bucket: "demo-pipeline-1"
         S3Key: "test.zip"
@@ -43,9 +53,9 @@ Resources:
           - |-
             {
               "Comment": "A Hello World AWL example using an AWS Lambda function",
-              "StartAt": "HelloWorld",
+              "StartAt": "time",
               "States": {
-                "HelloWorld": {
+                "time": {
                   "Type": "Task",
                   "Resource": "${lambdaArn}",
                   "End": true
