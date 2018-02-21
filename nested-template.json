@@ -5,7 +5,7 @@ Resources:
     Type: "AWS::Lambda::Function"
     Properties:
       Handler: "index.handler"
-      FunctionName: 'StepFunctionLambda'
+      FunctionName: 'TimeFunction'
       Role: 'arn:aws:iam::491398371152:role/MyBetaLambdastack-TimeFunctionRole-1LGQ2POGD3585'
       Code:
         S3Bucket: "demo-pipeline-1"
