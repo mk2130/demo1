@@ -1,11 +1,11 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Description: "An example template with an IAM role for a Lambda state machine."
 Resources:
-    MyLambdaFunction:
+  MyLambdaFunction:
     Type: "AWS::Lambda::Function"
     Properties:
       Handler: "index.handler"
-      FunctionName: 'TimeFunction'
+      FunctionName: 'StepFunctionLambda'
       Role: 'arn:aws:iam::491398371152:role/MyBetaLambdastack-TimeFunctionRole-1LGQ2POGD3585'
       Code:
         S3Bucket: "demo-pipeline-1"
