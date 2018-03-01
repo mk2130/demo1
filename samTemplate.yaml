@@ -9,6 +9,7 @@ Resources:
       FunctionName: 'TimeFunction'
       Handler: index.handler
       Runtime: nodejs6.10
+      AutoPublishAlias: live
       CodeUri: ./
       Events:
         MyTimeApi:
